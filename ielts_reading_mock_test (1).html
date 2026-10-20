@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ms Lê Hằng English - IELTS Reading Mock Test</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                        },
+                        ielts: {
+                            bg: '#f4f5f7',
+                            header: '#ffffff',
+                            border: '#e5e7eb',
+                            text: '#1f2937',
+                            highlight: '#d8b4fe'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f4f5f7;
+            color: #1f2937;
+            user-select: text;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Text Highlighting Style */
+        ::selection {
+            background-color: #c084fc !important;
+            color: #ffffff !important;
+        }
+        .user-highlight {
+            background-color: #d8b4fe !important;
+            color: #4c1d95 !important;
+            border-radius: 2px;
+            padding: 0 2px;
+        }
+
+        /* Evidence Highlighting Animation */
+        .evidence-highlight {
+            animation: pulseHighlight 2.5s ease-in-out infinite;
+            border-left: 4px solid #ef4444;
+            padding-left: 8px;
+            background-color: #fee2e2;
+            border-radius: 4px;
+        }
+
+        @keyframes pulseHighlight {
+            0% { background-color: #fef08a; }
+            50% { background-color: #fde047; }
+            100% { background-color: #fef08a; }
+        }
+
+        /* Gamified 3D Buttons */
+        .btn-3d {
+            transition: all 0.15s ease;
+            box-shadow: 0 4px 0 0 rgba(0,0,0,0.15);
+        }
+        .btn-3d:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 0 rgba(0,0,0,0.15);
+        }
+        .btn-3d:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 rgba(0,0,0,0.15);
+        }
+
+        .btn-3d-brand {
+            background-color: #16a34a;
+            color: white;
+            box-shadow: 0 4px 0 0 #15803d;
+        }
+        .btn-3d-brand:hover {
+            background-color: #22c55e;
+            box-shadow: 0 6px 0 0 #15803d;
+        }
+        .btn-3d-brand:active {
+            box-shadow: 0 1px 0 0 #15803d;
+        }
+
+        .btn-3d-blue {
+            background-color: #2563eb;
+            color: white;
+            box-shadow: 0 4px 0 0 #1d4ed8;
+        }
+        .btn-3d-blue:hover {
+            background-color: #3b82f6;
+            box-shadow: 0 6px 0 0 #1d4ed8;
+        }
+
+        /* Translation accordion transition */
+        .trans-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease;
+            opacity: 0;
+        }
+        .trans-content.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden bg-gray-100">
+
+    <!-- TOP HEADER & BRANDING BAR -->
+    <header class="bg-white border-b border-gray-200 px-4 py-2 flex flex-col md:flex-row justify-between items-center shadow-sm z-20 shrink-0 gap-2">
+        <!-- Title & Teacher Info -->
+        <div class="flex items-center space-x-3">
+            <div class="bg-emerald-600 text-white font-extrabold px-3 py-1.5 rounded-lg text-lg flex items-center gap-2 shadow-sm">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>IELTS MOCK TEST</span>
+            </div>
+            <div>
+                <h1 class="text-sm font-bold text-gray-800 uppercase tracking-wide">Ms Lê Hằng English, IELTS READING MOCK TEST</h1>
+                <p class="text-xs text-rose-600 font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-phone-volume text-rose-500 animate-pulse"></i>
+                    Đăng kí học tiếng anh 1-12, IELTS vui lòng liên hệ Ms Lê Hằng, zalo 0584 965 348
+                </p>
+            </div>
+        </div>
+
+        <!-- Timer & Main Action Bar -->
+        <div class="flex items-center space-x-3">
+            <!-- Timer Display -->
+            <div class="flex items-center bg-gray-100 px-3 py-1.5 rounded-xl border border-gray-300 font-mono text-base font-bold text-gray-700 shadow-inner">
+                <i class="fa-regular fa-clock text-emerald-600 mr-2 text-lg"></i>
+                <span id="timer-display">20:00</span>
+            </div>
+
+            <!-- Timer Control Button -->
+            <button id="btn-timer-toggle" onclick="toggleTimer()" class="btn-3d btn-3d-brand px-4 py-1.5 rounded-xl font-bold text-sm flex items-center gap-1.5">
+                <i class="fa-solid fa-play" id="timer-icon"></i>
+                <span id="timer-btn-text">BẮT ĐẦU TÍNH GIỜ LÀM BÀI</span>
+            </button>
+
+            <!-- Submit Button -->
+            <button onclick="submitTest()" class="btn-3d bg-rose-600 text-white hover:bg-rose-500 px-5 py-1.5 rounded-xl font-extrabold text-sm shadow-md flex items-center gap-1.5 border-b-4 border-rose-800">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>NỘP BÀI</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN SPLIT-SCREEN CONTENT CONTAINER -->
+    <main class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+        
+        <!-- LEFT PANEL: READING PASSAGE & GLOSSARY -->
+        <section id="left-panel" class="w-full md:w-1/2 h-full overflow-y-auto p-4 md:p-6 bg-white border-r border-gray-200 relative">
+            
+            <!-- Passage Header -->
+            <div class="sticky top-0 bg-white/95 backdrop-blur-sm pb-3 mb-4 border-b border-gray-200 z-10 flex justify-between items-center">
+                <div>
+                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">Reading Passage 1</span>
+                    <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mt-1">A Brief History of Glassmaking</h2>
+                </div>
+                <div class="text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-lg">
+                    <i class="fa-solid fa-highlighter text-purple-600 mr-1"></i> Bôi đen chữ để Highlight
+                </div>
+            </div>
+
+            <!-- Passage Content Paragraphs -->
+            <div id="passage-text-container" class="space-y-6 text-gray-800 leading-relaxed text-base text-justify">
+                
+                <!-- Paragraph 1 -->
+                <div id="para-1" class="passage-para transition-all duration-300 p-2 rounded-lg">
+                    <p class="mb-2">
+                        <strong class="text-emerald-700 font-extrabold">[Đoạn 1]</strong> The first known glass objects can be traced back to the ancient Eastern empires, in about 3500 BC, building on existing knowledge about glazes, a new material, including sand and metal oxides, was developed. This material – glass – was initially used for small pieces of jewellery and inlays in small statues. Then it was used increasingly for vessels made to hold perfumes, oils, and fragrances. Transparency was not a characteristic of these works. Of greater interest to the early glass artisans was the ability to reproduce the colour-and-structures of highly valued semi-precious stones.
+                    </p>
+                    <button onclick="toggleTranslation('trans-1')" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-lg flex items-center gap-1.5 transition">
+                        <span>Mở dịch đoạn này 🌟</span>
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div id="trans-1" class="trans-content mt-2 text-sm text-gray-600 bg-emerald-50/60 border-l-4 border-emerald-500 p-3 rounded-r-lg italic">
+                        Các vật thể bằng thủy tinh đầu tiên được biết đến có từ thời các đế chế phương Đông cổ đại, khoảng năm 3500 TCN, dựa trên kiến thức hiện có về men, một vật liệu mới bao gồm cát và oxit kim loại đã được phát triển. Vật liệu này – thủy tinh – ban đầu được sử dụng cho các món đồ trang sức nhỏ và đồ khảm trong các bức tượng nhỏ. Sau đó, nó ngày càng được sử dụng nhiều hơn cho các bình dùng để đựng nước hoa, dầu và hương liệu. Sự trong suốt không phải là đặc tính của những tác phẩm này. Mối quan tâm lớn hơn của các thợ thủ công thủy tinh thời kỳ đầu là khả năng tái tạo màu sắc và cấu trúc của các loại đá bán quý có giá trị cao.
+                    </div>
+                </div>
+
+                <!-- Paragraph 2 -->
+                <div id="para-2" class="passage-para transition-all duration-300 p-2 rounded-lg">
+                    <p class="mb-2">
+                        <strong class="text-emerald-700 font-extrabold">[Đoạn 2]</strong> By about 450 BC, artisans in the glass workshops of the Persian Empire had learned to apply other techniques to glassmaking, probably producing vessels of considerable size on a turning wheel. Cutting techniques were also used for some of their complex decorations. Meanwhile, the Greeks still concentrated their energies on ceramics, and used glass simply for coloured inlays in sculptures – especially for magnificent monumental statues in public sites.
+                    </p>
+                    <button onclick="toggleTranslation('trans-2')" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-lg flex items-center gap-1.5 transition">
+                        <span>Mở dịch đoạn này 🌟</span>
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div id="trans-2" class="trans-content mt-2 text-sm text-gray-600 bg-emerald-50/60 border-l-4 border-emerald-500 p-3 rounded-r-lg italic">
+                        Đến khoảng năm 450 TCN, các thợ thủ công trong xưởng thủy tinh của Đế quốc Ba Tư đã học được cách áp dụng các kỹ thuật khác vào việc làm thủy tinh, có thể sản xuất các bình có kích thước đáng kể trên bánh xe quay. Các kỹ thuật cắt cũng được sử dụng cho một số đồ trang trí phức tạp của họ. Trong khi đó, người Hy Lạp vẫn tập trung năng lượng vào đồ gốm và chỉ sử dụng thủy tinh cho các trang trí khảm màu trong điêu khắc – đặc biệt là cho các bức tượng đài tráng lệ ở các nơi công cộng.
+                    </div>
+                </div>
+
+                <!-- Paragraph 3 -->
+                <div id="para-3" class="passage-para transition-all duration-300 p-2 rounded-lg">
+                    <p class="mb-2">
+                        <strong class="text-emerald-700 font-extrabold">[Đoạn 3]</strong> However, in the 1st and 2nd centuries BC, an industry of luxury glass items of various forms did emerge in former Greek areas strongly influenced by eastern cultures. This industry was in turn to have a profound effect on the glass art of the early-Roman Empire.
+                    </p>
+                    <button onclick="toggleTranslation('trans-3')" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-lg flex items-center gap-1.5 transition">
+                        <span>Mở dịch đoạn này 🌟</span>
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div id="trans-3" class="trans-content mt-2 text-sm text-gray-600 bg-emerald-50/60 border-l-4 border-emerald-500 p-3 rounded-r-lg italic">
+                        Tuy nhiên, vào thế kỷ 1 và 2 TCN, một ngành công nghiệp sản xuất đồ thủy tinh xa xỉ với nhiều hình dạng khác nhau đã xuất hiện ở các vùng thuộc Hy Lạp trước đây chịu ảnh hưởng mạnh mẽ của văn hóa phương Đông. Ngành công nghiệp này lần lượt có ảnh hưởng sâu sắc đến nghệ thuật thủy tinh của Đế chế La Mã thời kỳ đầu.
+                    </div>
+                </div>
+
+                <!-- Paragraph 4 -->
+                <div id="para-4" class="passage-para transition-all duration-300 p-2 rounded-lg">
+                    <p class="mb-2">
+                        <strong class="text-emerald-700 font-extrabold">[Đoạn 4]</strong> The rise of the Roman Empire (1st century BC) was accompanied by an increase in glass production in the Mediterranean region. Initially glass retained its status as a luxury material – indeed from the earliest years of its development it had been generally considered equal to precious stones and valuable metals. Coloured glass bowls, mosaic-glass plates, and glass vessels with gold décor were very popular with the wealthy. However, as the empire expanded, the steps from luxury to mass production, and from decorative objects to vessels for daily use, were gradually taken.
+                    </p>
+                    <button onclick="toggleTranslation('trans-4')" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-lg flex items-center gap-1.5 transition">
+                        <span>Mở dịch đoạn này 🌟</span>
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div id="trans-4" class="trans-content mt-2 text-sm text-gray-600 bg-emerald-50/60 border-l-4 border-emerald-500 p-3 rounded-r-lg italic">
+                        Sự trỗi dậy của Đế chế La Mã (thế kỷ 1 TCN) đi kèm với sự gia tăng sản xuất thủy tinh ở khu vực Địa Trung Hải. Ban đầu, thủy tinh vẫn giữ vị thế là một vật liệu xa xỉ – thực sự từ những năm đầu phát triển, nó thường được coi là ngang hàng với đá quý và kim loại đắt tiền. Bát thủy tinh màu, đĩa thủy tinh khảm và bình thủy tinh trang trí bằng vàng rất phổ biến đối với giới giàu có. Tuy nhiên, khi đế chế mở rộng, các bước chuyển từ hàng xa xỉ sang sản xuất hàng loạt, và từ đồ vật trang trí sang vật dụng hàng ngày, đã dần được thực hiện.
+                    </div>
+                </div>
+
+                <!-- Paragraph 5 -->
+                <div id="para-5" class="passage-para transition-all duration-300 p-2 rounded-lg">
+                    <p class="mb-2">
+                        <strong class="text-emerald-700 font-extrabold">[Đoạn 5]</strong> The grounding for this was the Syrian glassmakers’ discovery at the beginning of the 1st century BC that glass, when melted, can be made into shapes by blowing down a hollow metal tube. Thus it became possible for these craftsmen to produce a large variety of vessels for different uses – from simple bottles to more decorative and complex pieces. Starting with the leading Syrian glassworks, glass as a manufactured product spread across the entire area of Roman rule. With mass production, glass increasingly became a trade item – of no minor importance in convincing the so-called ‘barbarians’ from the border areas such as Germany of the superiority of Roman civilization.
+                    </p>
+                    <button onclick="toggleTranslation('trans-5')" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-lg flex items-center gap-1.5 transition">
+                        <span>Mở dịch đoạn này 🌟</span>
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div id="trans-5" class="trans-content mt-2 text-sm text-gray-600 bg-emerald-50/60 border-l-4 border-emerald-500 p-3 rounded-r-lg italic">
+                        Cơ sở cho điều này là phát hiện của các thợ làm thủy tinh Syria vào đầu thế kỷ 1 TCN rằng thủy tinh, khi nóng chảy, có thể được tạo hình bằng cách thổi qua một ống kim loại rỗng. Do đó, các thợ thủ công này có thể sản xuất nhiều loại bình khác nhau cho các mục đích sử dụng khác nhau – từ các chai đơn giản đến các món đồ trang trí và phức tạp hơn. Bắt đầu từ các xưởng thủy tinh hàng đầu của Syria, thủy tinh như một sản phẩm chế tạo đã lan rộng khắp toàn bộ khu vực cai trị của La Mã. Với việc sản xuất hàng loạt, thủy tinh ngày càng trở thành một mặt hàng thương mại – có tầm quan trọng không nhỏ trong việc thuyết phục những người cái gọi là 'dã蛮' từ các vùng biên giới như Đức về sự vượt trội của văn minh La Mã.
+                    </div>
+                </div>
+
+                <!-- Paragraph 6 -->
+                <div id="para-6" class="passage-para transition-all duration-300 p-2 rounded-lg">
+                    <p class="mb-2">
+                        <strong class="text-emerald-700 font-extrabold">[Đoạn 6]</strong> The well-planned network of roads in the Roman Empire ensured that the new shapes of manufactured glass objects, and the newly developed techniques used to produce them, were quickly spread and adopted. Wherever suitable materials were found, the same or very similar glass forms, with hardly any variation in quality, were made. This is true of the Italian peninsula, including Rome itself, where numerous workshops producing high-quality goods existed, as well as of Spain and along the shores of the Black Sea. Because of their particularly well-suited sand and large deposits of soda ash, however, the main centres of glass production remained in Syria, Mesopotamia, and Lower Egypt.
+                    </p>
+                    <button onclick="toggleTranslation('trans-6')" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-lg flex items-center gap-1.5 transition">
+                        <span>Mở dịch đoạn này 🌟</span>
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div id="trans-6" class="trans-content mt-2 text-sm text-gray-600 bg-emerald-50/60 border-l-4 border-emerald-500 p-3 rounded-r-lg italic">
+                        Mạng lưới đường xá được quy hoạch tốt trong Đế chế La Mã đảm bảo rằng các hình dạng mới của các đồ vật thủy tinh được sản xuất, và các kỹ thuật mới được phát triển dùng để sản xuất chúng, được nhanh chóng lan truyền và áp dụng. Bất cứ nơi nào tìm thấy vật liệu phù hợp, các dạng thủy tinh giống hệt hoặc rất tương tự, hầu như không có sự thay đổi về chất lượng, đã được tạo ra. Điều này đúng với bán đảo Ý, bao gồm cả chính Rome, nơi tồn tại vô số xưởng sản xuất hàng hóa chất lượng cao, cũng như ở Tây Ban Nha và dọc theo bờ Biển Đen. Tuy nhiên, do có loại cát đặc biệt phù hợp và trữ lượng tro soda lớn, các trung tâm sản xuất thủy tinh chính vẫn nằm ở Syria, Lưỡng Hà và Hạ Ai Cập.
+                    </div>
+                </div>
+
+                <!-- Paragraph 7 -->
+                <div id="para-7" class="passage-para transition-all duration-300 p-2 rounded-lg">
+                    <p class="mb-2">
+                        <strong class="text-emerald-700 font-extrabold">[Đoạn 7]</strong> Starting in the 1st century AD, small vessels and utensils in Roman households came to be made predominantly of wheel-blown glass, but also of glass. Beside the large number of everyday small vessels for storing fragrances and medicinal extracts, there were bowls in all shapes – some formed on the humming-wheel; some blown – plates, lamps, and much more. Even vessels technically very difficult to produce have been found, such as playful bottles in the shape of birds or other animals.
+                    </p>
+                    <button onclick="toggleTranslation('trans-7')" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-lg flex items-center gap-1.5 transition">
+                        <span>Mở dịch đoạn này 🌟</span>
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div id="trans-7" class="trans-content mt-2 text-sm text-gray-600 bg-emerald-50/60 border-l-4 border-emerald-500 p-3 rounded-r-lg italic">
+                        Bắt đầu từ thế kỷ 1 AD, các bình và dụng cụ nhỏ trong các hộ gia đình La Mã chủ yếu được làm bằng thủy tinh thổi trên bánh xe, nhưng cũng làm bằng thủy tinh. Bên cạnh số lượng lớn các bình nhỏ hàng ngày để đựng nước hoa và chiết xuất dược liệu, còn có các bát đủ mọi hình dạng – một số được tạo hình trên bánh xe quay; một số được thổi – đĩa, đèn và nhiều thứ khác. Ngay cả những bình rất khó sản xuất về mặt kỹ thuật cũng đã được tìm thấy, chẳng hạn như những chiếc chai vui mắt có hình dạng con chim hoặc các loài động vật khác.
+                    </div>
+                </div>
+
+                <!-- Paragraph 8 -->
+                <div id="para-8" class="passage-para transition-all duration-300 p-2 rounded-lg">
+                    <p class="mb-2">
+                        <strong class="text-emerald-700 font-extrabold">[Đoạn 8]</strong> Whereas colour characterised the appearance of early Roman glass – in keeping with the Greek tradition – from the 2nd century AD, the transparency and also lightness of the material as well as its shiny surface, came to be valued more. Usually it was left in its natural state, typical are vessels having a blue-green coloration of varying intensity. There was, though, an increasing tendency to apply intricate details, and a few coloured accents can be observed. Different coloured glass was also used for simple handles, or for one or two threads or strings of extra glass wrapped around the rims to give emphasis to the vessels’ mouths.
+                    </p>
+                    <button onclick="toggleTranslation('trans-8')" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-lg flex items-center gap-1.5 transition">
+                        <span>Mở dịch đoạn này 🌟</span>
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div id="trans-8" class="trans-content mt-2 text-sm text-gray-600 bg-emerald-50/60 border-l-4 border-emerald-500 p-3 rounded-r-lg italic">
+                        Trong khi màu sắc đặc trưng cho vẻ ngoài của thủy tinh La Mã thời kỳ đầu – phù hợp với truyền thống Hy Lạp – thì từ thế kỷ 2 AD, tính trong suốt và độ nhẹ của vật liệu cũng như bề mặt sáng bóng của nó lại được coi trọng hơn. Thông thường nó được để ở trạng thái tự nhiên, điển hình là các bình có màu xanh lam-xanh lục với cường độ khác nhau. Tuy nhiên, có xu hướng ngày càng tăng trong việc áp dụng các chi tiết phức tạp, và có thể quan sát thấy một vài điểm nhấn màu sắc. Thủy tinh màu khác nhau cũng được sử dụng cho các tay cầm đơn giản, hoặc cho một hoặc hai sợi thủy tinh bổ sung quấn quanh vành để tạo điểm nhấn cho miệng bình.
+                    </div>
+                </div>
+
+                <!-- Paragraph 9 -->
+                <div id="para-9" class="passage-para transition-all duration-300 p-2 rounded-lg">
+                    <p class="mb-2">
+                        <strong class="text-emerald-700 font-extrabold">[Đoạn 9]</strong> In the late Roman period (3rd and 4th centuries AD) the tendency towards complexity was also reflected in the growing popularity of cut and engraved work. Blowing and the use of moulds were developed in new directions, surpassing the designs of the early period of glass-blowing. Later vessels such as the so-called shellfish beaker represented a climax in glassmaking of the later Roman period: fish and similar objects were blown separately, formed with special tools, and melted onto the walls of simply-shaped vessels.
+                    </p>
+                    <button onclick="toggleTranslation('trans-9')" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-lg flex items-center gap-1.5 transition">
+                        <span>Mở dịch đoạn này 🌟</span>
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div id="trans-9" class="trans-content mt-2 text-sm text-gray-600 bg-emerald-50/60 border-l-4 border-emerald-500 p-3 rounded-r-lg italic">
+                        Vào thời kỳ muộn của La Mã (thế kỷ 3 và 4 AD), xu hướng phức tạp hóa cũng được phản ánh trong sự phổ biến ngày càng tăng của công việc cắt và khắc. Thổi và sử dụng khuôn được phát triển theo các hướng mới, vượt qua các thiết kế của thời kỳ đầu thổi thủy tinh. Các bình sau này như cái gọi là "cốc vỏ sò" đại diện cho đỉnh cao trong việc chế tác thủy tinh thời kỳ muộn của La Mã: cá và các vật thể tương tự được thổi riêng, tạo hình bằng các công cụ đặc biệt, và nung chảy gắn lên thành của các bình có hình dạng đơn giản.
+                    </div>
+                </div>
+
+                <!-- Paragraph 10 -->
+                <div id="para-10" class="passage-para transition-all duration-300 p-2 rounded-lg">
+                    <p class="mb-2">
+                        <strong class="text-emerald-700 font-extrabold">[Đoạn 10]</strong> Roman glass art continued to be exemplary, and much of the world-famous Venetian glass art from the early 15th century was based on the revival of such methods as thread-glass decoration or mosaic glass. In fact, most methods of glassmaking and glass-decoration changed very little in the centuries following the Roman Empire. This is true of the development of European glass art, even up to the early 19th century. Until chemistry became an established scientific discipline in the second quarter of that century, glassmaking technology underwent only minor improvements. Even now, however, several of the techniques used in the Roman Empire remain a puzzle that modern glass technicians cannot resolve.
+                    </p>
+                    <button onclick="toggleTranslation('trans-10')" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-lg flex items-center gap-1.5 transition">
+                        <span>Mở dịch đoạn này 🌟</span>
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div id="trans-10" class="trans-content mt-2 text-sm text-gray-600 bg-emerald-50/60 border-l-4 border-emerald-500 p-3 rounded-r-lg italic">
+                        Nghệ thuật thủy tinh La Mã tiếp tục mang tính mẫu mực, và phần lớn nghệ thuật thủy tinh Venice nổi tiếng thế giới từ đầu thế kỷ 15 dựa trên sự hồi sinh của các phương pháp như trang trí thủy tinh dạng sợi hoặc thủy tinh khảm. Trên thực tế, hầu hết các phương pháp chế tác và trang trí thủy tinh thay đổi rất ít trong các thế kỷ sau Đế chế La Mã. Điều này đúng với sự phát triển của nghệ thuật thủy tinh Châu Âu, thậm chí cho đến đầu thế kỷ 19. Cho đến khi hóa học trở thành một ngành khoa học chính thức vào quý hai của thế kỷ đó, công nghệ chế tác thủy tinh chỉ trải qua những cải tiến nhỏ. Tuy nhiên, ngay cả hiện tại, một số kỹ thuật được sử dụng trong Đế chế La Mã vẫn là một câu đố mà các kỹ thuật viên thủy tinh hiện đại không thể giải quyết.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- VOCABULARY GLOSSARY (50+ ACADEMIC WORDS) -->
+            <div class="mt-10 pt-6 border-t border-gray-200">
+                <div class="flex items-center space-x-2 mb-4">
+                    <div class="p-2 bg-emerald-100 text-emerald-700 rounded-lg">
+                        <i class="fa-solid fa-book-bookmark text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Academic Vocabulary Glossary</h3>
+                        <p class="text-xs text-gray-500">Bảng từ vựng học thuật B2-C2 trích xuất từ bài đọc & đáp án</p>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto border border-gray-200 rounded-xl shadow-sm">
+                    <table class="min-w-full divide-y divide-gray-200 text-sm">
+                        <thead class="bg-gray-50 font-bold text-gray-700">
+                            <tr>
+                                <th class="px-3 py-2 text-left">Từ vựng</th>
+                                <th class="px-2 py-2 text-center">Loại từ</th>
+                                <th class="px-3 py-2 text-left">Nghĩa tiếng Việt ~ Synonym / Context</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 bg-white text-gray-700 font-medium">
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Trace back to</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">phr v</td><td class="px-3 py-1.5">Bắt nguồn từ, có từ thời (~ originate from)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Glaze</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Lớp men tráng (trên đồ gốm/thủy tinh)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Vessel</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Bình, hũ, dụng cụ chứa (~ container, utensil)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Fragrance</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Hương thơm, nước hoa (~ perfume, scent)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Transparency</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Sự trong suốt (~ clarity)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Artisan</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Thợ thủ công (~ craftsman)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Semi-precious stone</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n phr</td><td class="px-3 py-1.5">Đá bán quý</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Considerable</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">adj</td><td class="px-3 py-1.5">Đáng kể, lớn (~ significant, large)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Ceramics</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Đồ gốm sứ (~ pottery)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Inlay</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n/v</td><td class="px-3 py-1.5">Họa tiết khảm, cẩn</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Monumental</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">adj</td><td class="px-3 py-1.5">Hoành tráng, đồ sộ, đài niệm (~ impressive)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Emerge</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">v</td><td class="px-3 py-1.5">Xuất hiện, nổi lên (~ appear, arise)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Profound effect</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n phr</td><td class="px-3 py-1.5">Tác động sâu sắc (~ deep impact)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Retain</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">v</td><td class="px-3 py-1.5">Giữ lại, duy trì (~ keep, maintain)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Mass production</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n phr</td><td class="px-3 py-1.5">Sản xuất hàng loạt (~ large-scale manufacture)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Grounding</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Cơ sở, nền tảng (~ foundation, basis)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Melted</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">adj</td><td class="px-3 py-1.5">Nóng chảy (~ molten)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Hollow tube</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n phr</td><td class="px-3 py-1.5">Ống kim loại rỗng</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Superiority</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Sự vượt trội, thế ưu việt</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Well-planned network</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n phr</td><td class="px-3 py-1.5">Mạng lưới được quy hoạch tốt</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Adopt</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">v</td><td class="px-3 py-1.5">Áp dụng, tiếp nhận (~ embrace, apply)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Variation</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Sự biến đổi, sự khác biệt (~ change, difference)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Deposit</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Mỏ khoáng sản, trữ lượng</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Soda ash</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Tro soda (Natri cacbonat dùng làm thủy tinh)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Utensil</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Dụng cụ, đồ dùng gia đình (~ implement, tool)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Predominantly</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">adv</td><td class="px-3 py-1.5">Chủ yếu, phần lớn (~ mainly, mostly)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Extract</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Chiết xuất, tinh chất</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Playful</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">adj</td><td class="px-3 py-1.5">Vui mắt, sống động, ngộ nghĩnh</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Characterise</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">v</td><td class="px-3 py-1.5">Đặc trưng cho (~ define, mark)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">In keeping with</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">prep phr</td><td class="px-3 py-1.5">Phù hợp với, tuân theo (~ in line with)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Lightness</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Độ nhẹ</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Shiny surface</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n phr</td><td class="px-3 py-1.5">Bề mặt sáng bóng (~ lustrous finish)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Intensity</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Cường độ, độ đậm nhạt</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Intricate details</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n phr</td><td class="px-3 py-1.5">Các chi tiết tinh xảo, phức tạp (~ complex features)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Accent</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Điểm nhấn, nét trang trí nổi bật</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Thread / String</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Sợi, dải thủy tinh mỏng</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Rim</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Vành, mép (~ edge, border)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Emphasis</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Sự nhấn mạnh, sự nổi bật (~ highlight)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Engraved work</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n phr</td><td class="px-3 py-1.5">Tác phẩm điêu khắc/khắc chìm</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Mould</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Khuôn đúc (~ matrix)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Surpass</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">v</td><td class="px-3 py-1.5">Vượt qua, vượt trội (~ exceed, outperform)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Beaker</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Cốc chia độ, vại nhỏ</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Climax</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Đỉnh cao, điểm cực thịnh (~ peak, pinnacle)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Exemplary</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">adj</td><td class="px-3 py-1.5">Gương mẫu, mang tính mẫu mực (~ model)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Revival</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Sự hồi sinh, sự phục hưng (~ resurgence)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Established discipline</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n phr</td><td class="px-3 py-1.5">Ngành khoa học/môn học chính thức</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Undergo</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">v</td><td class="px-3 py-1.5">Trải qua (~ experience, sustain)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Minor improvement</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n phr</td><td class="px-3 py-1.5">Cải tiến nhỏ</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Puzzle</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">n</td><td class="px-3 py-1.5">Câu đố, bí ẩn chưa giải đáp (~ mystery, enigma)</td></tr>
+                            <tr><td class="px-3 py-1.5 font-bold text-emerald-700">Resolve</td><td class="px-2 py-1.5 text-center text-xs bg-gray-100 rounded">v</td><td class="px-3 py-1.5">Giải quyết, làm sáng tỏ (~ solve)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- RIGHT PANEL: EXERCISES, INPUTS & EXPLANATIONS -->
+        <section id="right-panel" class="w-full md:w-1/2 h-full overflow-y-auto p-4 md:p-6 bg-gray-50 flex flex-col justify-between">
+            
+            <div>
+                <!-- Progress Indicator Bar -->
+                <div class="bg-white p-3 rounded-xl shadow-sm mb-6 border border-gray-200">
+                    <div class="flex justify-between items-center text-xs font-bold text-gray-600 mb-1">
+                        <span>Tiến độ làm bài</span>
+                        <span id="progress-text">0 / 13 câu hoàn thành (0%)</span>
+                    </div>
+                    <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="bg-emerald-500 h-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- SECTION 1: QUESTIONS 1-6 (TRUE / FALSE / NOT GIVEN) -->
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 mb-6">
+                    <div class="border-b border-gray-100 pb-3 mb-4">
+                        <h3 class="text-base font-extrabold text-gray-900">Questions 1–6</h3>
+                        <p class="text-xs text-gray-600 mt-1">
+                            Choose <strong>TRUE</strong> if the statement agrees with the information given in the text,<br>
+                            choose <strong>FALSE</strong> if the statement contradicts the information,<br>
+                            or choose <strong>NOT GIVEN</strong> if there is no information on this.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Q1 -->
+                        <div class="question-block" id="q-block-1">
+                            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                                <p class="text-sm font-semibold text-gray-800">
+                                    <span class="inline-block bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded mr-1">1</span>
+                                    By about 450 BC, glass had become as important as ceramics in Greece.
+                                </p>
+                                <select id="input-q1" onchange="updateProgress()" class="q-input text-sm border-2 border-gray-300 rounded-lg p-1.5 focus:border-emerald-500 focus:outline-none font-bold text-gray-700 bg-white">
+                                    <option value="">-- Chọn --</option>
+                                    <option value="TRUE">TRUE</option>
+                                    <option value="FALSE">FALSE</option>
+                                    <option value="NOT GIVEN">NOT GIVEN</option>
+                                </select>
+                            </div>
+                            <!-- Feedback & Explanation (Hidden initially) -->
+                            <div id="explain-1" class="hidden mt-3 text-xs bg-amber-50 border border-amber-200 rounded-xl p-3 text-gray-800 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-extrabold text-emerald-700 text-sm">1. ĐÁP ÁN: FALSE</span>
+                                    <button onclick="locateEvidence(2)" class="text-xs text-blue-600 hover:text-blue-800 font-bold flex items-center gap-1 bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                                        <i class="fa-solid fa-arrow-pointer"></i> Xem vị trí trong bài
+                                    </button>
+                                </div>
+                                <p><strong>2. ĐOẠN CHỨA ĐÁP ÁN:</strong> Paragraph 2: "Meanwhile, the Greeks still concentrated their energies on ceramics, and used glass simply for coloured inlays in sculptures..."</p>
+                                <p><strong>3. DỊCH NGHĨA:</strong> Trong khi đó, người Hy Lạp vẫn tập trung năng lượng vào đồ gốm, và chỉ sử dụng thủy tinh cho các trang trí khảm màu trong điêu khắc...</p>
+                                <p><strong>4. CỤM TỪ ĐỒNG NGHĨA (SYNONYMS):</strong> concentrated energies on ceramics = gốm sứ vẫn là trọng tâm chính; used glass simply = thủy tinh chỉ là phụ thuộc/không quan trọng bằng.</p>
+                            </div>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="question-block" id="q-block-2">
+                            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                                <p class="text-sm font-semibold text-gray-800">
+                                    <span class="inline-block bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded mr-1">2</span>
+                                    The glassmakers of the early Roman Empire made copies of luxury Greek items.
+                                </p>
+                                <select id="input-q2" onchange="updateProgress()" class="q-input text-sm border-2 border-gray-300 rounded-lg p-1.5 focus:border-emerald-500 focus:outline-none font-bold text-gray-700 bg-white">
+                                    <option value="">-- Chọn --</option>
+                                    <option value="TRUE">TRUE</option>
+                                    <option value="FALSE">FALSE</option>
+                                    <option value="NOT GIVEN">NOT GIVEN</option>
+                                </select>
+                            </div>
+                            <div id="explain-2" class="hidden mt-3 text-xs bg-amber-50 border border-amber-200 rounded-xl p-3 text-gray-800 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-extrabold text-emerald-700 text-sm">1. ĐÁP ÁN: NOT GIVEN</span>
+                                    <button onclick="locateEvidence(3)" class="text-xs text-blue-600 hover:text-blue-800 font-bold flex items-center gap-1 bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                                        <i class="fa-solid fa-arrow-pointer"></i> Xem vị trí trong bài
+                                    </button>
+                                </div>
+                                <p><strong>2. ĐOẠN CHỨA ĐÁP ÁN:</strong> Paragraph 3: "This industry was in turn to have a profound effect on the glass art of the early-Roman Empire."</p>
+                                <p><strong>3. DỊCH NGHĨA:</strong> Ngành công nghiệp này lần lượt có ảnh hưởng sâu sắc đến nghệ thuật thủy tinh của Đế chế La Mã thời kỳ đầu.</p>
+                                <p><strong>4. CỤM TỪ ĐỒNG NGHĨA (SYNONYMS):</strong> Bài đọc chỉ đề cập ngành nghệ thuật Hy Lạp có "ảnh hưởng" (profound effect), hoàn toàn KHÔNG đề cập đến việc thợ La Mã có "sao chép" (made copies) các món đồ xa xỉ của Hy Lạp hay không.</p>
+                            </div>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="question-block" id="q-block-3">
+                            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                                <p class="text-sm font-semibold text-gray-800">
+                                    <span class="inline-block bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded mr-1">3</span>
+                                    With the rise of the Roman Empire, glass objects became more common.
+                                </p>
+                                <select id="input-q3" onchange="updateProgress()" class="q-input text-sm border-2 border-gray-300 rounded-lg p-1.5 focus:border-emerald-500 focus:outline-none font-bold text-gray-700 bg-white">
+                                    <option value="">-- Chọn --</option>
+                                    <option value="TRUE">TRUE</option>
+                                    <option value="FALSE">FALSE</option>
+                                    <option value="NOT GIVEN">NOT GIVEN</option>
+                                </select>
+                            </div>
+                            <div id="explain-3" class="hidden mt-3 text-xs bg-amber-50 border border-amber-200 rounded-xl p-3 text-gray-800 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-extrabold text-emerald-700 text-sm">1. ĐÁP ÁN: TRUE</span>
+                                    <button onclick="locateEvidence(4)" class="text-xs text-blue-600 hover:text-blue-800 font-bold flex items-center gap-1 bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                                        <i class="fa-solid fa-arrow-pointer"></i> Xem vị trí trong bài
+                                    </button>
+                                </div>
+                                <p><strong>2. ĐOẠN CHỨA ĐÁP ÁN:</strong> Paragraph 4: "The rise of the Roman Empire (1st century BC) was accompanied by an increase in glass production... steps from luxury to mass production, and from decorative objects to vessels for daily use..."</p>
+                                <p><strong>3. DỊCH NGHĨA:</strong> Sự trỗi dậy của Đế chế La Mã đi kèm với việc tăng cường sản xuất thủy tinh... các bước chuyển từ hàng xa xỉ sang sản xuất hàng loạt, và sang vật dụng hàng ngày...</p>
+                                <p><strong>4. CỤM TỪ ĐỒNG NGHĨA (SYNONYMS):</strong> rise of Roman Empire = rise of Roman Empire; mass production / vessels for daily use = became more common (trở nên phổ biến hơn).</p>
+                            </div>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="question-block" id="q-block-4">
+                            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                                <p class="text-sm font-semibold text-gray-800">
+                                    <span class="inline-block bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded mr-1">4</span>
+                                    Syrian glassmakers created many different types of objects by blowing glass.
+                                </p>
+                                <select id="input-q4" onchange="updateProgress()" class="q-input text-sm border-2 border-gray-300 rounded-lg p-1.5 focus:border-emerald-500 focus:outline-none font-bold text-gray-700 bg-white">
+                                    <option value="">-- Chọn --</option>
+                                    <option value="TRUE">TRUE</option>
+                                    <option value="FALSE">FALSE</option>
+                                    <option value="NOT GIVEN">NOT GIVEN</option>
+                                </select>
+                            </div>
+                            <div id="explain-4" class="hidden mt-3 text-xs bg-amber-50 border border-amber-200 rounded-xl p-3 text-gray-800 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-extrabold text-emerald-700 text-sm">1. ĐÁP ÁN: TRUE</span>
+                                    <button onclick="locateEvidence(5)" class="text-xs text-blue-600 hover:text-blue-800 font-bold flex items-center gap-1 bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                                        <i class="fa-solid fa-arrow-pointer"></i> Xem vị trí trong bài
+                                    </button>
+                                </div>
+                                <p><strong>2. ĐOẠN CHỨA ĐÁP ÁN:</strong> Paragraph 5: "The grounding for this was the Syrian glassmakers’ discovery... glass, when melted, can be made into shapes by blowing down a hollow metal tube. Thus it became possible for these craftsmen to produce a large variety of vessels..."</p>
+                                <p><strong>3. DỊCH NGHĨA:</strong> Phát hiện của thợ làm thủy tinh Syria... thủy tinh khi nóng chảy có thể tạo hình bằng cách thổi... Do đó họ có thể sản xuất nhiều loại bình đa dạng...</p>
+                                <p><strong>4. CỤM TỪ ĐỒNG NGHĨA (SYNONYMS):</strong> a large variety of vessels = many different types of objects; blowing down a hollow tube = blowing glass.</p>
+                            </div>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="question-block" id="q-block-5">
+                            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                                <p class="text-sm font-semibold text-gray-800">
+                                    <span class="inline-block bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded mr-1">5</span>
+                                    The Roman road network provided a safer way of transporting glass than previous methods.
+                                </p>
+                                <select id="input-q5" onchange="updateProgress()" class="q-input text-sm border-2 border-gray-300 rounded-lg p-1.5 focus:border-emerald-500 focus:outline-none font-bold text-gray-700 bg-white">
+                                    <option value="">-- Chọn --</option>
+                                    <option value="TRUE">TRUE</option>
+                                    <option value="FALSE">FALSE</option>
+                                    <option value="NOT GIVEN">NOT GIVEN</option>
+                                </select>
+                            </div>
+                            <div id="explain-5" class="hidden mt-3 text-xs bg-amber-50 border border-amber-200 rounded-xl p-3 text-gray-800 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-extrabold text-emerald-700 text-sm">1. ĐÁP ÁN: NOT GIVEN</span>
+                                    <button onclick="locateEvidence(6)" class="text-xs text-blue-600 hover:text-blue-800 font-bold flex items-center gap-1 bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                                        <i class="fa-solid fa-arrow-pointer"></i> Xem vị trí trong bài
+                                    </button>
+                                </div>
+                                <p><strong>2. ĐOẠN CHỨA ĐÁP ÁN:</strong> Paragraph 6: "The well-planned network of roads in the Roman Empire ensured that the new shapes... were quickly spread and adopted."</p>
+                                <p><strong>3. DỊCH NGHĨA:</strong> Mạng lưới đường xá quy hoạch tốt đảm bảo các hình dạng và kỹ thuật mới được lan truyền nhanh chóng...</p>
+                                <p><strong>4. CỤM TỪ ĐỒNG NGHĨA (SYNONYMS):</strong> Bài đọc đề cập đường xá giúp lan truyền nhanh chóng (quickly spread), KHÔNG hề đề cập việc đường xá có giúp vận chuyển "an toàn hơn" (safer way) hay không.</p>
+                            </div>
+                        </div>
+
+                        <!-- Q6 -->
+                        <div class="question-block" id="q-block-6">
+                            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                                <p class="text-sm font-semibold text-gray-800">
+                                    <span class="inline-block bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded mr-1">6</span>
+                                    Roman glass vessels produced in the 1st century AD were restricted to simple designs.
+                                </p>
+                                <select id="input-q6" onchange="updateProgress()" class="q-input text-sm border-2 border-gray-300 rounded-lg p-1.5 focus:border-emerald-500 focus:outline-none font-bold text-gray-700 bg-white">
+                                    <option value="">-- Chọn --</option>
+                                    <option value="TRUE">TRUE</option>
+                                    <option value="FALSE">FALSE</option>
+                                    <option value="NOT GIVEN">NOT GIVEN</option>
+                                </select>
+                            </div>
+                            <div id="explain-6" class="hidden mt-3 text-xs bg-amber-50 border border-amber-200 rounded-xl p-3 text-gray-800 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-extrabold text-emerald-700 text-sm">1. ĐÁP ÁN: FALSE</span>
+                                    <button onclick="locateEvidence(7)" class="text-xs text-blue-600 hover:text-blue-800 font-bold flex items-center gap-1 bg-blue-50 px-2 py-1 rounded border border-blue-200">
+                                        <i class="fa-solid fa-arrow-pointer"></i> Xem vị trí trong bài
+                                    </button>
+                                </div>
+                                <p><strong>2. ĐOẠN CHỨA ĐÁP ÁN:</strong> Paragraph 7: "Starting in the 1st century AD... Even vessels technically very difficult to produce have been found, such as playful bottles in the shape of birds or other animals."</p>
+                                <p><strong>3. DỊCH NGHĨA:</strong> Bắt đầu từ thế kỷ 1 AD... Ngay cả những bình rất khó về mặt kỹ thuật cũng được tìm thấy, như những chiếc chai vui mắt hình con chim hay động vật...</p>
+                                <p><strong>4. CỤM TỪ ĐỒNG NGHĨA (SYNONYMS):</strong> restricted to simple designs (bị giới hạn ở thiết kế đơn giản) CONTRADICTS technically very difficult / playful bottles in shape of birds (rất khó về kỹ thuật/hình dạng con vật phức tạp).</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SECTION 2: QUESTIONS 7-13 (NOTE COMPLETION - FILL IN THE BLANKS) -->
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 mb-6">
+                    <div class="border-b border-gray-100 pb-3 mb-4">
+                        <h3 class="text-base font-extrabold text-gray-900">Questions 7–13</h3>
+                        <p class="text-xs text-gray-600 mt-1">
+                            Complete the notes below.<br>
+                            Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.
+                        </p>
+                    </div>
+
+                    <div class="space-y-5 text-sm text-gray-800">
+                        <div class="bg-emerald-50/50 p-4 rounded-xl border border-emerald-100 space-y-4">
+                            <h4 class="font-extrabold text-emerald-800 text-base border-b border-emerald-200 pb-1">Developments in glassmaking</h4>
+                            
+                            <!-- 2nd century AD -->
+                            <div>
+                                <p class="font-bold text-gray-700 mb-2">2nd century AD</p>
+                                <ul class="list-disc pl-5 space-y-3">
+                                    <li>
+                                        <span>greater emphasis on glass having a</span>
+                                        <input type="text" id="input-q7" oninput="updateProgress()" placeholder="7" class="q-input mx-1.5 border-2 border-gray-300 rounded-lg px-2 py-1 w-36 text-sm font-bold text-emerald-700 focus:border-emerald-500 focus:outline-none">
+                                        <span>, lightness and transparency</span>
+                                        <div id="explain-7" class="hidden mt-2 text-xs bg-amber-50 border border-amber-200 rounded-xl p-2.5 space-y-1">
+                                            <div class="flex justify-between items-center"><span class="font-bold text-emerald-700">7. ĐÁP ÁN: shiny surface</span><button onclick="locateEvidence(8)" class="text-blue-600 font-bold"><i class="fa-solid fa-arrow-pointer"></i> Vị trí</button></div>
+                                            <p><strong>Đoạn chứa:</strong> Para 8: "...the transparency and also lightness of the material as well as its <strong>shiny surface</strong>, came to be valued more."</p>
+                                            <p><strong>Dịch:</strong> tính trong suốt và độ nhẹ... cũng như bề mặt sáng bóng của nó lại được coi trọng hơn.</p>
+                                            <p><strong>Synonyms:</strong> greater emphasis = came to be valued more.</p>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <span>complex</span>
+                                        <input type="text" id="input-q8" oninput="updateProgress()" placeholder="8" class="q-input mx-1.5 border-2 border-gray-300 rounded-lg px-2 py-1 w-40 text-sm font-bold text-emerald-700 focus:border-emerald-500 focus:outline-none">
+                                        <span>were often added, as well as coloured accents</span>
+                                        <div id="explain-8" class="hidden mt-2 text-xs bg-amber-50 border border-amber-200 rounded-xl p-2.5 space-y-1">
+                                            <div class="flex justify-between items-center"><span class="font-bold text-emerald-700">8. ĐÁP ÁN: details / intricate details</span><button onclick="locateEvidence(8)" class="text-blue-600 font-bold"><i class="fa-solid fa-arrow-pointer"></i> Vị trí</button></div>
+                                            <p><strong>Đoạn chứa:</strong> Para 8: "There was, though, an increasing tendency to apply <strong>intricate details</strong>, and a few coloured accents..."</p>
+                                            <p><strong>Dịch:</strong> có xu hướng ngày càng tăng trong việc áp dụng các chi tiết phức tạp...</p>
+                                            <p><strong>Synonyms:</strong> complex = intricate; added = apply.</p>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <span>extra threads of glass used to highlight the</span>
+                                        <input type="text" id="input-q9" oninput="updateProgress()" placeholder="9" class="q-input mx-1.5 border-2 border-gray-300 rounded-lg px-2 py-1 w-32 text-sm font-bold text-emerald-700 focus:border-emerald-500 focus:outline-none">
+                                        <span>of vessels</span>
+                                        <div id="explain-9" class="hidden mt-2 text-xs bg-amber-50 border border-amber-200 rounded-xl p-2.5 space-y-1">
+                                            <div class="flex justify-between items-center"><span class="font-bold text-emerald-700">9. ĐÁP ÁN: mouths</span><button onclick="locateEvidence(8)" class="text-blue-600 font-bold"><i class="fa-solid fa-arrow-pointer"></i> Vị trí</button></div>
+                                            <p><strong>Đoạn chứa:</strong> Para 8: "...extra glass wrapped around the rims to give emphasis to the vessels’ <strong>mouths</strong>."</p>
+                                            <p><strong>Dịch:</strong> các sợi thủy tinh bổ sung quấn quanh vành để tạo điểm nhấn cho miệng bình.</p>
+                                            <p><strong>Synonyms:</strong> highlight = give emphasis to.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Late Roman period -->
+                            <div class="pt-2">
+                                <p class="font-bold text-gray-700 mb-2">Late Roman period</p>
+                                <ul class="list-disc pl-5 space-y-3">
+                                    <li>
+                                        <span>high point of later Roman glassmaking can be seen in containers like the</span>
+                                        <input type="text" id="input-q10" oninput="updateProgress()" placeholder="10" class="q-input mx-1.5 border-2 border-gray-300 rounded-lg px-2 py-1 w-44 text-sm font-bold text-emerald-700 focus:border-emerald-500 focus:outline-none">
+                                        <div id="explain-10" class="hidden mt-2 text-xs bg-amber-50 border border-amber-200 rounded-xl p-2.5 space-y-1">
+                                            <div class="flex justify-between items-center"><span class="font-bold text-emerald-700">10. ĐÁP ÁN: shellfish beaker</span><button onclick="locateEvidence(9)" class="text-blue-600 font-bold"><i class="fa-solid fa-arrow-pointer"></i> Vị trí</button></div>
+                                            <p><strong>Đoạn chứa:</strong> Para 9: "Later vessels such as the so-called <strong>shellfish beaker</strong> represented a climax in glassmaking of the later Roman period..."</p>
+                                            <p><strong>Dịch:</strong> Các bình sau này như cái gọi là cốc vỏ sò đại diện cho đỉnh cao chế tác thủy tinh...</p>
+                                            <p><strong>Synonyms:</strong> high point = climax; containers = vessels.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Later developments -->
+                            <div class="pt-2">
+                                <p class="font-bold text-gray-700 mb-2">Later developments</p>
+                                <ul class="list-disc pl-5 space-y-3">
+                                    <li>
+                                        <span>from the 15th century, Venetians used old techniques like</span>
+                                        <input type="text" id="input-q11" oninput="updateProgress()" placeholder="11" class="q-input mx-1.5 border-2 border-gray-300 rounded-lg px-2 py-1 w-40 text-sm font-bold text-emerald-700 focus:border-emerald-500 focus:outline-none">
+                                        <span>and thread-glass decoration</span>
+                                        <div id="explain-11" class="hidden mt-2 text-xs bg-amber-50 border border-amber-200 rounded-xl p-2.5 space-y-1">
+                                            <div class="flex justify-between items-center"><span class="font-bold text-emerald-700">11. ĐÁP ÁN: mosaic glass</span><button onclick="locateEvidence(10)" class="text-blue-600 font-bold"><i class="fa-solid fa-arrow-pointer"></i> Vị trí</button></div>
+                                            <p><strong>Đoạn chứa:</strong> Para 10: "...much of the world-famous Venetian glass art from the early 15th century was based on the revival of such methods as thread-glass decoration or <strong>mosaic glass</strong>."</p>
+                                            <p><strong>Dịch:</strong> ...dựa trên sự hồi sinh của các phương pháp như trang trí thủy tinh dải sợi hoặc thủy tinh khảm.</p>
+                                            <p><strong>Synonyms:</strong> old techniques = revival of methods.</p>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <span>acceptance of</span>
+                                        <input type="text" id="input-q12" oninput="updateProgress()" placeholder="12" class="q-input mx-1.5 border-2 border-gray-300 rounded-lg px-2 py-1 w-32 text-sm font-bold text-emerald-700 focus:border-emerald-500 focus:outline-none">
+                                        <span>as a subject for serious study in the 19th century led to improvements in glassmaking technology.</span>
+                                        <div id="explain-12" class="hidden mt-2 text-xs bg-amber-50 border border-amber-200 rounded-xl p-2.5 space-y-1">
+                                            <div class="flex justify-between items-center"><span class="font-bold text-emerald-700">12. ĐÁP ÁN: chemistry</span><button onclick="locateEvidence(10)" class="text-blue-600 font-bold"><i class="fa-solid fa-arrow-pointer"></i> Vị trí</button></div>
+                                            <p><strong>Đoạn chứa:</strong> Para 10: "Until <strong>chemistry</strong> became an established scientific discipline in the second quarter of that century, glassmaking technology underwent only minor improvements."</p>
+                                            <p><strong>Dịch:</strong> Cho đến khi hóa học trở thành môn khoa học chính thức... công nghệ làm thủy tinh mới có cải tiến lớn.</p>
+                                            <p><strong>Synonyms:</strong> subject for serious study = established scientific discipline.</p>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <span>some methods dating back to the Roman Empire continue to be a</span>
+                                        <input type="text" id="input-q13" oninput="updateProgress()" placeholder="13" class="q-input mx-1.5 border-2 border-gray-300 rounded-lg px-2 py-1 w-32 text-sm font-bold text-emerald-700 focus:border-emerald-500 focus:outline-none">
+                                        <span>for today’s glassmakers.</span>
+                                        <div id="explain-13" class="hidden mt-2 text-xs bg-amber-50 border border-amber-200 rounded-xl p-2.5 space-y-1">
+                                            <div class="flex justify-between items-center"><span class="font-bold text-emerald-700">13. ĐÁP ÁN: puzzle</span><button onclick="locateEvidence(10)" class="text-blue-600 font-bold"><i class="fa-solid fa-arrow-pointer"></i> Vị trí</button></div>
+                                            <p><strong>Đoạn chứa:</strong> Para 10: "Even now, however, several of the techniques used in the Roman Empire remain a <strong>puzzle</strong> that modern glass technicians cannot resolve."</p>
+                                            <p><strong>Dịch:</strong> Ngay cả bây giờ, một số kỹ thuật La Mã vẫn là bí ẩn mà kỹ thuật viên hiện đại không thể giải thích.</p>
+                                            <p><strong>Synonyms:</strong> today's glassmakers = modern glass technicians; continue to be = remain.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Action Footer -->
+            <div class="pt-4 border-t border-gray-200 mt-6 flex justify-end">
+                <button onclick="submitTest()" class="btn-3d btn-3d-brand text-white font-extrabold px-8 py-3 rounded-2xl text-base shadow-lg flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-lg"></i>
+                    <span>NỘP BÀI KIỂM TRA</span>
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- RESULT MODAL DIALOG -->
+    <div id="result-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative border-4 border-emerald-500 text-center transform transition-all scale-95 opacity-0" id="modal-content">
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Teacher Avatar / Logo -->
+            <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 border-4 border-emerald-200 shadow-inner">
+                <i class="fa-solid fa-award text-4xl"></i>
+            </div>
+
+            <h2 class="text-2xl font-black text-gray-900">KẾT QUẢ BÀI THI IELTS READING</h2>
+            <p class="text-xs text-rose-600 font-bold mb-4">Ms Lê Hằng English - Hotline/Zalo: 0584 965 348</p>
+
+            <!-- Score Cards Container -->
+            <div class="grid grid-cols-2 gap-4 my-5">
+                <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200">
+                    <span class="block text-xs font-bold text-gray-500 uppercase">Số câu đúng</span>
+                    <span id="score-raw" class="text-3xl font-black text-emerald-600">0 / 13</span>
+                </div>
+                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200">
+                    <span class="block text-xs font-bold text-gray-500 uppercase">Band điểm Reading</span>
+                    <span id="score-band" class="text-3xl font-black text-amber-600">0.0</span>
+                </div>
+            </div>
+
+            <!-- Teacher Feedback Note -->
+            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 text-left mb-6">
+                <h4 class="text-xs font-bold text-gray-500 uppercase mb-1"><i class="fa-solid fa-comment-dots text-emerald-600 mr-1"></i>Nhận xét từ Ms Lê Hằng:</h4>
+                <p id="teacher-comment" class="text-sm font-semibold text-gray-800 italic">"Cố gắng luyện tập thêm em nhé!"</p>
+            </div>
+
+            <!-- Modal Action Buttons -->
+            <div class="flex space-x-3">
+                <button onclick="closeModal()" class="flex-1 btn-3d bg-gray-200 text-gray-800 hover:bg-gray-300 py-3 rounded-xl font-bold text-sm">
+                    Xem lại bài & Giải thích
+                </button>
+                <button onclick="location.reload()" class="flex-1 btn-3d btn-3d-brand py-3 rounded-xl font-bold text-sm">
+                    Làm lại bài
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- AUDIO ELEMENTS (WEB AUDIO API SYNTHESIZER / FALLBACK) -->
+    <script>
+        /* Modern Web Audio API Sound Synthesizer for Gamified FX */
+        const AudioFX = {
+            ctx: null,
+            init() {
+                if (!this.ctx) {
+                    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+            },
+            playCorrect() {
+                this.init();
+                const now = this.ctx.currentTime;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, now); // C5
+                osc.frequency.exponentialRampToValueAtTime(1046.50, now + 0.3); // C6
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.3);
+            },
+            playIncorrect() {
+                this.init();
+                const now = this.ctx.currentTime;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(200, now);
+                osc.frequency.exponentialRampToValueAtTime(80, now + 0.4);
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.4);
+            },
+            playFinish() {
+                this.init();
+                const notes = [523.25, 659.25, 783.99, 1046.50];
+                notes.forEach((freq, idx) => {
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    const now = this.ctx.currentTime + idx * 0.12;
+                    osc.frequency.setValueAtTime(freq, now);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                    osc.connect(gain);
+                    gain.connect(this.ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                });
+            }
+        };
+
+        /* OFFICIAL ANSWER KEYS & DATA */
+        const CORRECT_ANSWERS = {
+            q1: "FALSE",
+            q2: "NOT GIVEN",
+            q3: "TRUE",
+            q4: "TRUE",
+            q5: "NOT GIVEN",
+            q6: "FALSE",
+            q7: ["shiny surface"],
+            q8: ["details", "intricate details"],
+            q9: ["mouths"],
+            q10: ["shellfish beaker"],
+            q11: ["mosaic glass"],
+            q12: ["chemistry"],
+            q13: ["puzzle"]
+        };
+
+        /* TIMER LOGIC */
+        let timerSeconds = 20 * 60; // 20 Minutes
+        let timerInterval = null;
+        let isTimerRunning = false;
+
+        function toggleTimer() {
+            const btnText = document.getElementById('timer-btn-text');
+            const icon = document.getElementById('timer-icon');
+
+            if (!isTimerRunning) {
+                // Start
+                isTimerRunning = true;
+                btnText.textContent = "TẠM DỪNG";
+                icon.className = "fa-solid fa-pause";
+                
+                timerInterval = setInterval(() => {
+                    if (timerSeconds <= 0) {
+                        clearInterval(timerInterval);
+                        isTimerRunning = false;
+                        alert("Đã hết giờ làm bài, vui lòng nộp bài nhé!");
+                        lockInputs();
+                        submitTest();
+                    } else {
+                        timerSeconds--;
+                        updateTimerDisplay();
+                    }
+                }, 1000);
+            } else {
+                // Pause
+                clearInterval(timerInterval);
+                isTimerRunning = false;
+                btnText.textContent = "TIẾP TỤC LÀM BÀI";
+                icon.className = "fa-solid fa-play";
+            }
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timerSeconds / 60);
+            const secs = timerSeconds % 60;
+            document.getElementById('timer-display').textContent = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function lockInputs() {
+            const inputs = document.querySelectorAll('.q-input');
+            inputs.forEach(input => input.disabled = true);
+        }
+
+        /* ACCORDION TRANSLATION TOGGLE */
+        function toggleTranslation(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('open')) {
+                el.classList.remove('open');
+            } else {
+                el.classList.add('open');
+            }
+        }
+
+        /* UPDATE PROGRESS BAR */
+        function updateProgress() {
+            let answeredCount = 0;
+            for (let i = 1; i <= 13; i++) {
+                const val = document.getElementById(`input-q${i}`).value.trim();
+                if (val !== "") answeredCount++;
+            }
+            const pct = Math.round((answeredCount / 13) * 100);
+            document.getElementById('progress-bar').style.width = `${pct}%`;
+            document.getElementById('progress-text').textContent = `${answeredCount} / 13 câu hoàn thành (${pct}%)`;
+        }
+
+        /* LOCATE EVIDENCE IN READING PASSAGE */
+        function locateEvidence(paraNum) {
+            const targetPara = document.getElementById(`para-${paraNum}`);
+            if (!targetPara) return;
+
+            // Remove existing evidence highlights
+            document.querySelectorAll('.passage-para').forEach(p => p.classList.remove('evidence-highlight'));
+
+            // Scroll left panel
+            targetPara.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            targetPara.classList.add('evidence-highlight');
+
+            // Remove highlight after 4s
+            setTimeout(() => {
+                targetPara.classList.remove('evidence-highlight');
+            }, 4000);
+        }
+
+        /* HIGHLIGHT TEXT FEATURE */
+        document.addEventListener('mouseup', function () {
+            const selection = window.getSelection();
+            if (!selection.rangeCount || selection.isCollapsed) return;
+
+            const selectedText = selection.toString().trim();
+            if (selectedText.length < 2) return;
+
+            // Only apply highlight within text panels
+            const range = selection.getRangeAt(0);
+            const container = range.commonAncestorContainer;
+            if (container.nodeType === 3) {
+                const parent = container.parentElement;
+                if (parent.closest('#passage-text-container') || parent.closest('#right-panel')) {
+                    const span = document.createElement('span');
+                    span.className = 'user-highlight';
+                    try {
+                        range.surroundContents(span);
+                    } catch (e) {
+                        // Ignore complex selections across block tags
+                    }
+                }
+            }
+        });
+
+        /* CONVERT IELTS READING RAW SCORE TO BAND 9.0 SCALE */
+        function calculateBandScore(raw) {
+            if (raw === 13) return 9.0;
+            if (raw === 12) return 8.5;
+            if (raw === 11) return 8.0;
+            if (raw === 10) return 7.5;
+            if (raw === 9) return 7.0;
+            if (raw === 8) return 6.5;
+            if (raw === 7) return 6.0;
+            if (raw === 6) return 5.5;
+            if (raw === 5) return 5.0;
+            if (raw === 4) return 4.5;
+            return 3.5;
+        }
+
+        /* GET TEACHER FEEDBACK NOTE */
+        function getTeacherComment(band) {
+            if (band >= 8.5) return "Xuất sắc tuyệt đối! Kỹ năng Reading của em đã đạt trình độ tiệm cận bản ngữ. Tiếp tục giữ vững phong độ nhé!";
+            if (band >= 7.5) return "Làm bài rất tốt! Em nắm từ vựng và kỹ năng Skimming/Scanning rất vững vàng. Rèn luyện thêm để đạt 8.5+!";
+            if (band >= 6.5) return "Kết quả khá tốt! Em đã hiểu hầu hết ý chính. Hãy chú ý kỹ hơn các từ khóa bẫy (synonyms) ở các câu khó!";
+            if (band >= 5.5) return "Nỗ lực tốt! Em cần trau dồi thêm vốn từ vựng Academic và luyện tập phân tích câu phức trong bài đọc.";
+            return "Đừng nản lòng nhé! Hãy học thuộc bảng từ vựng Glossary phía dưới và xem kỹ phần giải thích chi tiết để rút kinh nghiệm!";
+        }
+
+        /* SUBMIT TEST & SHOW RESULTS */
+        function submitTest() {
+            // Stop timer
+            if (timerInterval) clearInterval(timerInterval);
+
+            let rawScore = 0;
+
+            // Check Answers
+            for (let i = 1; i <= 13; i++) {
+                const inputEl = document.getElementById(`input-q${i}`);
+                const userVal = inputEl.value.trim().toLowerCase();
+                const explainEl = document.getElementById(`explain-${i}`);
+                
+                // Show explanations
+                if (explainEl) explainEl.classList.remove('hidden');
+
+                let isCorrect = false;
+
+                if (i <= 6) {
+                    // True/False/Not Given
+                    const correctVal = CORRECT_ANSWERS[`q${i}`].toLowerCase();
+                    if (userVal === correctVal) {
+                        isCorrect = true;
+                    }
+                } else {
+                    // Fill in the blanks
+                    const possibleAnswers = CORRECT_ANSWERS[`q${i}`].map(a => a.toLowerCase());
+                    if (possibleAnswers.includes(userVal)) {
+                        isCorrect = true;
+                    }
+                }
+
+                if (isCorrect) {
+                    rawScore++;
+                    inputEl.classList.remove('border-gray-300', 'border-red-500');
+                    inputEl.classList.add('border-emerald-500', 'bg-emerald-50');
+                } else {
+                    inputEl.classList.remove('border-gray-300', 'border-emerald-500');
+                    inputEl.classList.add('border-rose-500', 'bg-rose-50');
+                }
+            }
+
+            const bandScore = calculateBandScore(rawScore);
+
+            // Play Sound FX & Confetti
+            if (bandScore >= 7.0) {
+                AudioFX.playFinish();
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            } else {
+                AudioFX.playCorrect();
+            }
+
+            // Populate Modal
+            document.getElementById('score-raw').textContent = `${rawScore} / 13`;
+            document.getElementById('score-band').textContent = bandScore.toFixed(1);
+            document.getElementById('teacher-comment').textContent = `"${getTeacherComment(bandScore)}"`;
+
+            // Display Modal
+            const modal = document.getElementById('result-modal');
+            const modalContent = document.getElementById('modal-content');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('result-modal');
+            const modalContent = document.getElementById('modal-content');
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+    </script>
+</body>
+</html>
